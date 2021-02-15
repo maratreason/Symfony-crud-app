@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Update post page{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Update post page</h1>
+    {{ form_start(createForm) }}
+    {{ form_widget(createForm) }}
+    {{ form_end(createForm) }}
+</div>
+{% endblock %}

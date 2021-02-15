@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Create post page{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Create post</h1>
+    {{ form_start(createForm) }}
+    {{ form_widget(createForm) }}
+    {{ form_end(createForm) }}
+</div>
+{% endblock %}

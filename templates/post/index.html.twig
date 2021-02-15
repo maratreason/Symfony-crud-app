@@ -1,0 +1,52 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block body %}
+{% for message in app.flashes("success") %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success mt-1 mb-1" role="alert">
+                {{ message }}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">All Posts</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Description</td>
+                    <td>Category</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% if posts %}
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.description }}</td>
+                    <td>{{ post.category }}</td>
+                    <td>
+                        <a href="{{ absolute_url(asset('')) }}post/view/{{post.id}}" class="btn btn-primary btn-sm">View</a>
+                        <a href="{{ absolute_url(asset('')) }}post/update/{{ post.id }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ absolute_url(asset('')) }}post/delete/{{ post.id }}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td><h1>No Records Found</h1></td>
+            </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

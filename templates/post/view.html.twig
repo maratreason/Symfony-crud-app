@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Single post{% endblock %}
+
+{% block body %}
+<div>
+    {% if post %}
+    <div>
+        <h2>{{ post.title }}</h2>
+        <h4 class="text-secondary">{{ post.description }}</h4>
+        <small class="text-secondary">{{ post.category }}</small><br>
+        <a class="btn btn-success btn-sm" href="{{ absolute_url(asset('')) }}posts">Back</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
